@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <link rel="stylesheet" href="./style/style.css">
+
+  <script>
+    function myFunction(){
+      let x = document.forms["myForm"]["email"].value;
+      const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      if(pattern.test(x) == false){
+        document.getElementById("email").classList.add("invalid");
+ 
+        let y = document.getElementById('error')
+        y.classList.remove('no-visibility');
+        y.classList.add('visibility')
+        y.classList.add('invalid-color')
+        y.classList.remove('no-visibility')
+
+        return false;
+      }
+      return pattern.test(x);
+    }
+  </script>
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <!-- Sign-up form start -->
+
+  <div class="main-box">
+    <div class="info">
+      <div class="info-content">
+        <h1>Stay updated!</h1>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+  
+        <div class="points">
+          <div><img src="/assets/images/icon-list.svg" alt="list"> <p>Product discovery and building what matters</p></div>
+          <div><img src="/assets/images/icon-list.svg" alt="list"> <p>Measuring to ensure updates are a success</p></div>
+          <div><img src="/assets/images/icon-list.svg" alt="list"> <p>And much more!</p></div>
+        </div>
+        <form name="myForm" action="/success.html" onsubmit="return myFunction()">
+          <div class="input-group">
+            <label for="email">Email address <span id="error" class="no-visibility">Valid email required</span></label>
+            <input type='text' id="email" name="email" placeholder="email@company.com" required/>
+          </div>
+          <button type="submit">Subscribe to monthly newsletter</button>
+        </form>
+      </div>
+    </div>
+    <div class="picture"></div>
+  </div>
+
+  <!-- Sign-up form end -->  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
